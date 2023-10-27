@@ -1,2 +1,1 @@
-# LENS
- Esprits
+# camera_kit_demo
