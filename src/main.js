@@ -26,12 +26,15 @@ import {
   
     // Get the user's media stream.
     let mediaStream = await navigator.mediaDevices.getUserMedia({
-      video: { facingMode: 'environment' }
+      video: true,
     });
   
     // Create a CameraKit media stream source from the user's media stream.
     const source = createMediaStreamSource(
-      mediaStream, { cameraType: 'back' }
+        mediaStream, {
+          transform: Transform2D.MirrorX,
+          cameraType: 'front'
+        }
     );
   
     // Set the source of the CameraKit session.
@@ -43,4 +46,3 @@ import {
     // Start the CameraKit session.
     session.play();
   })();
-  
